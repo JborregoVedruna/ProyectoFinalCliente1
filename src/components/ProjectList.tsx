@@ -16,7 +16,7 @@ const Projects = () => {
     const [searchTerm, setSearchTerm] = useState(''); // Término de búsqueda
 
     // URL de la API
-    const url: string = "http://20.13.145.54:8080/api/v1/projects";
+    const url: string = "https://20.13.145.54:8080/api/v1/projects";
 
     // Hacemos la petición cuando cambie la página o el término de búsqueda
     useEffect(() => {
