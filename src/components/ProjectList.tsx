@@ -30,7 +30,9 @@ const Projects = () => {
             ? `${url}/${search}`
             : `${url}?size=3&page=${p}`;
 
-        const response = await fetch(requestUrl);
+        const response = await fetch(requestUrl, {
+    referrerPolicy: "unsafe-url" 
+});
         const data = await response.json();
 
         if (search) {
@@ -57,6 +59,8 @@ const Projects = () => {
     const handleDelete = async (id: number) => {
         const response = await fetch(`${url}/${id}`, {
             method: 'DELETE',
+            referrerPolicy: "unsafe-url" 
+
         });
 
         if (response.ok) {
