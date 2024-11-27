@@ -16,7 +16,7 @@ const Projects = () => {
     const [searchTerm, setSearchTerm] = useState(''); // Término de búsqueda
 
     // URL de la API
-    const url: string = "http://20.13.145.54:8080/api/v1/projects";
+    const url: string = "https://20.13.145.54:8080/api/v1/projects";
 
     // Hacemos la petición cuando cambie la página o el término de búsqueda
     useEffect(() => {
@@ -30,9 +30,7 @@ const Projects = () => {
             ? `${url}/${search}`
             : `${url}?size=3&page=${p}`;
 
-        const response = await fetch(requestUrl, {
-    referrerPolicy: "unsafe-url" 
-});
+        const response = await fetch(requestUrl);
         const data = await response.json();
 
         if (search) {
@@ -58,8 +56,7 @@ const Projects = () => {
     // Función para eliminar un proyecto
     const handleDelete = async (id: number) => {
         const response = await fetch(`${url}/${id}`, {
-            method: 'DELETE',
-            referrerPolicy: "unsafe-url" 
+            method: 'DELETE'
 
         });
 
